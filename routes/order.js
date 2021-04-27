@@ -20,7 +20,7 @@ router.post("/order/create/:userId",
     isSignedIn,
     isAuthenticated,
     pushOrderInPurchaseList,
-    updateStock,
+    // updateStock,
     createOrder
 )
 

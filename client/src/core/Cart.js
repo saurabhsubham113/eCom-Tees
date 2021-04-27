@@ -3,6 +3,7 @@ import Base from "./Base"
 import Card from './Card'
 import { loadCart } from './helper/cartHelper';
 import { getProducts } from './helper/coreapicalls';
+import PaypalPayment from './PaypalPayment';
 import StripeCheckout from './StripeCheckout';
 
 const Cart = () => {
@@ -22,23 +23,22 @@ const Cart = () => {
         </div>
     )
 
-    // const loadCheckout = () => (
-    //     <div >
-    //         <h2>This is to load check out</h2>
-    //     </div>
-    // )
+   
     return (
         <Base title="Cart Page" description="Ready to Checkout">
             <div className="row text-center">
                 <div className="col-6">
-                    {loadAllProducts()}
+                    {products.length > 0 ? loadAllProducts() : (
+                        <h3>No Products in cart</h3>
+                    )}
                 </div>
                 <div className="col-6">
-                    <StripeCheckout
+                    {/* <StripeCheckout
                         products={products}
                         setReload={setReload}
                         reload={reload}
-                    />
+                    /> */}
+                    <PaypalPayment products={products} reload={reload} setReload={setReload} />
                 </div>
             </div>
         </Base>

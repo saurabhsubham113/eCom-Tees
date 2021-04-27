@@ -15,6 +15,7 @@ const categoryRoutes = require("./routes/category")
 const productRoutes = require("./routes/product")
 const orderRoutes = require("./routes/order")
 const stripeRoutes = require("./routes/stripePayment")
+const paypalRoutes = require("./routes/paypalPayment")
 
 const app = express()
 
@@ -35,6 +36,7 @@ app.use("/api", categoryRoutes)
 app.use("/api", productRoutes)
 app.use("/api", orderRoutes)
 app.use("/api", stripeRoutes)
+app.use("/api", paypalRoutes)
 
 
 app.listen(process.env.PORT, () => {
